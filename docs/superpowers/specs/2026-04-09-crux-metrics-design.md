@@ -22,7 +22,10 @@ A Gemini CLI skill (`crux-metrics`) that allows AI coding agents to pull and int
   - `--url` (string) OR `--origin` (string) - Mutually exclusive.
   - `--form-factor` (string, optional) - e.g., DESKTOP, PHONE, TABLET.
   - `--ect` (string, optional) - e.g., 4G, 3G.
-- **Output:** A Markdown-formatted table summarizing the metrics (LCP, CLS, INP, FCP, TTFB, etc.), showing the Good / Needs Improvement / Poor percentage breakdowns and the 75th percentile (p75) values.
+  - `--history` (boolean, optional) - If passed, queries the `/v1/history:queryHistory` endpoint to retrieve 25-week historical data instead of the standard 28-day rolling data.
+- **Output:** A Markdown-formatted table summarizing ALL available metrics (LCP, CLS, INP, FCP, TTFB, and experimental metrics). 
+  - For standard queries: shows the Good / Needs Improvement / Poor percentage breakdowns and the 75th percentile (p75) values.
+  - For history queries: shows the trend of p75 values across the 25 collection periods, providing a clear view of performance changes over time.
 - **Error Handling:** Gracefully handles `404` (insufficient data for origin/URL) and `429` (rate limit) errors, returning clear, LLM-friendly messages instead of raw stack traces.
 
 ### `SKILL.md`

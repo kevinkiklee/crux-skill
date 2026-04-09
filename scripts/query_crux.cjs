@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const args = process.argv.slice(2);
 let url = null;
 let origin = null;
